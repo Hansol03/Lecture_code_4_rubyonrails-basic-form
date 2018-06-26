@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Workspace</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+  <a href="/">호므로</a>
+  <% if session[:id] %>
+    <a href="/users/logout">로그아웃</a>
+    <p><%= User.find(session[:id]).username %>님 환영</p>
+    <a href="/users/getout">회원탈퇴</a>
+    <% else %> 
+    <a href= "/users/signup">회원가입</a>
+    <a href="/users/login">로그인</a>
+
+  <% end %>
+<%= yield %>
+
+</body>
+</html>
